@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/yeetcode
+    username: yeetcode
+    password: example
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+      hbm2ddl:
+        auto: update
