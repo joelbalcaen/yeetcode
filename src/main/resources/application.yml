@@ -5,7 +5,11 @@ spring:
     password: example
   jpa:
     generate-ddl: true
+    show-swl: true
     hibernate:
       ddl-auto: update
       hbm2ddl:
         auto: update
+    properties:
+      hibernate:
+        format_sql: true

@@ -1,6 +1,6 @@
 # Yeetcode
 
-yeetcode is a clone of leetcode (https://leetcode.com/) done for sake of learning.
+yeetcode is a clone of leetcode (https://leetcode.com/) created for the sake of learning.
 
 ## Prequisites:
 - docker

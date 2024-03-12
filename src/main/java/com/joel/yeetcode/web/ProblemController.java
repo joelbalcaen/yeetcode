@@ -1,6 +1,7 @@
 package com.joel.yeetcode.web;
 
 
+import com.joel.yeetcode.dtos.ProblemCodeTemplateDTO;
 import com.joel.yeetcode.dtos.ProblemDTO;
 import com.joel.yeetcode.entities.Problem;
 import com.joel.yeetcode.repositories.ProblemRepository;
@@ -23,6 +24,7 @@ public class ProblemController {
         return problemService.getAllProblems();
     }
 
+
     @PostMapping(rootPath)
     ProblemDTO createProblem(@RequestBody ProblemDTO problem) {
         return problemService.createProblem(problem);
@@ -32,4 +34,6 @@ public class ProblemController {
     void deleteProblem(@PathVariable Long id) {
         problemService.deleteProblem(id);
     }
+
+
 }
