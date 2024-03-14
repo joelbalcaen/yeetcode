@@ -23,7 +23,9 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
-
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-oauth2-client', version: '3.2.3'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '3.2.3'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-oauth2-resource-server', version: '3.2.3'
 }
 
 tasks.named('test') {
