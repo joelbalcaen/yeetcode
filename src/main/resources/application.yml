@@ -35,7 +35,7 @@ spring:
     level:
       org:
         springframework:
-          security: TRACE
+          security: DEBUG
 
 frontend:
   url: "http://localhost:5173"

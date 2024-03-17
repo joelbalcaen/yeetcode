@@ -1,10 +1,13 @@
 package com.joel.yeetcode.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.authority.mapping.GrantedAuthoritiesMapper;
@@ -24,6 +27,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+
 @Configuration
 @EnableWebSecurity
 class SecurityConfig {
@@ -32,11 +36,8 @@ class SecurityConfig {
     private static final String REALM_ACCESS_CLAIM = "realm_access";
     private static final String ROLES_CLAIM = "roles";
 
-//    private final KeycloakLogoutHandler keycloakLogoutHandler;
-//
-//    SecurityConfig(KeycloakLogoutHandler keycloakLogoutHandler) {
-//        this.keycloakLogoutHandler = keycloakLogoutHandler;
-//    }
+    @Value("${frontend.url}")
+    private String frontendUrl;
 
     @Bean
     public SessionRegistry sessionRegistry() {
@@ -55,17 +56,15 @@ class SecurityConfig {
 
     @Bean
     public SecurityFilterChain resourceServerFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(auth -> auth
-//                .requestMatchers(new AntPathRequestMatcher("/customers*"))
-//                .hasRole("user")
-                .requestMatchers(new AntPathRequestMatcher("/"))
-                .permitAll()
-                .anyRequest()
-                .authenticated());
-        http.oauth2ResourceServer((oauth2) -> oauth2
-                .jwt(Customizer.withDefaults()));
-        http.oauth2Login(Customizer.withDefaults());
-//                .logout(logout -> logout.addLogoutHandler(keycloakLogoutHandler).logoutSuccessUrl("/"));
+        http
+                .authorizeHttpRequests(auth -> auth
+                .requestMatchers(HttpMethod.OPTIONS,"/**").permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/**")).permitAll()
+        )
+                .oauth2ResourceServer((oauth2) -> oauth2.jwt(Customizer.withDefaults()))
+        .oauth2Login(Customizer.withDefaults())
+        .cors(AbstractHttpConfigurer::disable);
+
         return http.build();
     }
 
@@ -105,6 +104,7 @@ class SecurityConfig {
             return mappedAuthorities;
         };
     }
+
 
     Collection<GrantedAuthority> generateAuthoritiesFromClaim(Collection<String> roles) {
         return roles.stream().map(role -> new SimpleGrantedAuthority("ROLE_" + role)).collect(

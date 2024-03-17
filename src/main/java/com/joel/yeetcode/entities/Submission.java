@@ -18,6 +18,10 @@ public class Submission {
     @JoinColumn(name = "problem_id", referencedColumnName = "id")
     Problem problem;
 
+    @Enumerated(EnumType.ORDINAL)
     ProgrammingLanguage codeLanguage;
+
     String code;
+
+    String ownerEmail;
 }
