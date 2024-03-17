@@ -31,11 +31,11 @@ spring:
         jwt:
           issuer-uri: http://localhost:8081/realms/yeetcode
 
-  logging:
-    level:
-      org:
-        springframework:
-          security: DEBUG
+logging:
+  level:
+    org:
+      springframework:
+        security: TRACE
 
 frontend:
   url: "http://localhost:5173"

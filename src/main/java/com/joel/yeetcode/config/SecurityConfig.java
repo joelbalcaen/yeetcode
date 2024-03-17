@@ -1,6 +1,5 @@
 package com.joel.yeetcode.config;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -35,9 +34,6 @@ class SecurityConfig {
     private static final String GROUPS = "groups";
     private static final String REALM_ACCESS_CLAIM = "realm_access";
     private static final String ROLES_CLAIM = "roles";
-
-    @Value("${frontend.url}")
-    private String frontendUrl;
 
     @Bean
     public SessionRegistry sessionRegistry() {
