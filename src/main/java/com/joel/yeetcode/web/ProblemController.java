@@ -4,6 +4,7 @@ package com.joel.yeetcode.web;
 import com.joel.yeetcode.dtos.ProblemDTO;
 import com.joel.yeetcode.services.ProblemService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -24,11 +25,12 @@ public class ProblemController {
     }
 
     @PostMapping(rootPath)
-    ProblemDTO createProblem(@RequestBody ProblemDTO problem, Principal principal) {
+    @ResponseStatus(HttpStatus.CREATED)
+    ProblemDTO createProblem(@RequestBody ProblemDTO problem) {
         return problemService.createProblem(problem);
     }
 
-    @DeleteMapping(rootPath+"/{id}")
+    @DeleteMapping(rootPath + "/{id}")
     void deleteProblem(@PathVariable Long id) {
         problemService.deleteProblem(id);
     }
