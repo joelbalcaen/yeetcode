@@ -13,11 +13,9 @@ import org.springframework.web.server.ResponseStatusException;
 @RestController
 @RequiredArgsConstructor
 public class SubmissionController {
-
     private final String rootPath = "/submissions";
 
     private final SubmissionService submissionService;
-
 
     @PostMapping(rootPath)
     void submit(@RequestBody SubmissionDTO submissionDTO, @AuthenticationPrincipal Jwt token) {

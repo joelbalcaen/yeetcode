@@ -15,18 +15,16 @@ import java.util.List;
 // try to set it globally before deploying for real
 @CrossOrigin
 public class ProblemController {
-    private final String rootPath = "/problems";
+    final String rootPath = "/problems";
     private final ProblemService problemService;
 
     @GetMapping(rootPath)
     List<ProblemDTO> all(Principal principal) {
-        System.out.println(principal);
         return problemService.getAllProblems();
     }
 
     @PostMapping(rootPath)
     ProblemDTO createProblem(@RequestBody ProblemDTO problem, Principal principal) {
-        System.out.println(principal);
         return problemService.createProblem(problem);
     }
 
