@@ -3,7 +3,6 @@ package com.joel.yeetcode.web;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.joel.yeetcode.dtos.ProblemDTO;
 import com.joel.yeetcode.services.ProblemService;
-import com.joel.yeetcode.utils.ProblemTestUtils;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -14,6 +13,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import utils.ProblemTestUtils;
 
 import java.util.List;
 
