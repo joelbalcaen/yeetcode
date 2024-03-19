@@ -28,6 +28,8 @@ dependencies {
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-oauth2-resource-server', version: '3.2.3'
     // https://mvnrepository.com/artifact/org.junit.platform/junit-platform-runner
     testImplementation group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.10.2'
+    runtimeOnly 'com.h2database:h2'
+
 
 }
 
