@@ -5,7 +5,7 @@ import com.joel.yeetcode.entities.Submission;
 import com.joel.yeetcode.enums.ProgrammingLanguage;
 
 public class SubmissionTestUtils {
-    public static SubmissionDTO buildProblemDTO() {
+    public static SubmissionDTO buildSubmissionDTO() {
         return SubmissionDTO.builder()
                 .id(1L)
                 .codeLanguage(ProgrammingLanguage.PYTHON)
