@@ -24,9 +24,9 @@ public class SubmissionController {
         submissionService.submit(submissionDTO);
     }
 
-    @GetMapping(rootPath+"/{id}")
+    @GetMapping(rootPath + "/{id}")
     SubmissionDTO get(@PathVariable Long id, @AuthenticationPrincipal Jwt token) {
-        final var tokenEmail = (String) token.getClaims().get("email");
-        return submissionService.get(id, tokenEmail).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+//        final var tokenEmail = (String) token.getClaims().get("email");
+        return submissionService.get(id, "tokenEmail").orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 }
