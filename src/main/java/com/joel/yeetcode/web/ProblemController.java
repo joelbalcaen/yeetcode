@@ -5,7 +5,6 @@ import com.joel.yeetcode.dtos.ProblemDTO;
 import com.joel.yeetcode.services.ProblemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -26,14 +25,12 @@ public class ProblemController {
     }
 
     @PostMapping(rootPath)
-    @PreAuthorize("hasRole('client_admin')")
     @ResponseStatus(HttpStatus.CREATED)
     ProblemDTO createProblem(@RequestBody ProblemDTO problem) {
         return problemService.createProblem(problem);
     }
 
     @DeleteMapping(rootPath + "/{id}")
-    @PreAuthorize("hasRole('client_admin')")
     void deleteProblem(@PathVariable Long id) {
         problemService.deleteProblem(id);
     }

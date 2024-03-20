@@ -23,19 +23,9 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'org.mapstruct:mapstruct:1.5.5.Final'
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-oauth2-client', version: '3.2.3'
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '3.2.3'
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-oauth2-resource-server', version: '3.2.3'
     // https://mvnrepository.com/artifact/org.junit.platform/junit-platform-runner
     testImplementation group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.10.2'
     runtimeOnly 'com.h2database:h2'
-// https://mvnrepository.com/artifact/com.github.dasniko/testcontainers-keycloak
-    testImplementation group: 'com.github.dasniko', name: 'testcontainers-keycloak', version: '3.3.0'
-
-    // https://mvnrepository.com/artifact/org.testcontainers/postgresql
-    testImplementation group: 'org.testcontainers', name: 'postgresql', version: '1.19.7'
-// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-testcontainers
-    testImplementation group: 'org.springframework.boot', name: 'spring-boot-testcontainers', version: '3.2.3'
 
 
 }

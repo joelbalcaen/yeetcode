@@ -14,22 +14,6 @@ spring:
       hibernate:
         format_sql: true
 
-# https://www.baeldung.com/spring-boot-keycloak
-  security:
-    oauth2:
-      client:
-        registration:
-          keycloak:
-            client-id: yeetcode-login
-            authorization-grant-type: authorization_code
-            scope: openid
-        provider:
-          keycloak:
-            issuer-uri: http://localhost:8081/realms/yeetcode
-            user-name-attribute: preferred_username
-      resourceserver:
-        jwt:
-          issuer-uri: http://localhost:8081/realms/yeetcode
 
 logging:
   level:

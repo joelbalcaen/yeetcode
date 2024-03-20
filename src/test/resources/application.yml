@@ -1,0 +1,41 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+    username: sa
+    password: sa
+  jpa:
+    generate-ddl: true
+    show-swl: true
+    hibernate:
+      ddl-auto: update
+      hbm2ddl:
+        auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+  # https://www.baeldung.com/spring-boot-keycloak
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: yeetcode-login
+            authorization-grant-type: authorization_code
+            scope: openid
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8081/realms/yeetcode
+            user-name-attribute: preferred_username
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8081/realms/yeetcode
+
+logging:
+  level:
+    org:
+      springframework:
+        security: TRACE
+
+frontend:
+  url: "http://localhost:5173"
